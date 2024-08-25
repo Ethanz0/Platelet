@@ -5,13 +5,6 @@
 //  Created by Ethan Zhang on 25/8/2024.
 //
 
-//
-//  ContentView.swift
-//  test1
-//
-//  Created by Ethan Zhang on 25/8/2024.
-//
-
 import SwiftUI
 
 //struct ContentView: View {
@@ -39,42 +32,98 @@ import SwiftUI
 //            .previewInterfaceOrientation(.landscapeLeft)
 //    }
 //}
+
+
+//struct ContentView: View {
+//    @State private var clicked = false
+//    @State private var count = 0
+//
+//
+//    var body: some View {
+//        
+//        HStack {
+//            Text("Tap Count: \(count)") // Display the tap count
+//                .font(.largeTitle)
+//                .padding()
+//                .allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
+//            PlateletImage(clicked: clicked)
+//                .onLongPressGesture(minimumDuration: 1.0, pressing: { pressing in
+//                                // This closure will be called when the gesture state changes
+//                                clicked = pressing
+//                    print("Long press started")
+//
+//                            }) {
+//                                // This closure will be called when the long press gesture is completed
+//                                print("Long press completed")
+//                            }
+////                    .gesture(
+////                        LongPressGesture(minimumDuration: 5 )
+////                            .onChanged({ _ in
+////                                clicked = true
+////                                count+=1
+////                                print("click hold")
+////
+////                            })
+////                            .onEnded({ _ in
+////                                clicked = false
+////                                print("click release")
+////                            })
+////                )                
+//                    .ignoresSafeArea()
+//        }
+//
+//        
+//    }
+//}
 struct ContentView: View {
-    @State private var clicked = false
+    @State private var isPressed = false
+    @State private var touchCount = 0
 
     var body: some View {
-        
-            PlateletImage(clicked: clicked)
+        ZStack(alignment: .bottomLeading) {
+            Image(isPressed ? "platelet image2" : "platelet image")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
                 .gesture(
                     DragGesture(minimumDistance: 0)
-                        .onChanged({ _ in
-                            clicked = true
-                        })
-                        .onEnded({ _ in
-                            clicked = false;
-                        })
+                        .onChanged { _ in
+                            if !isPressed {
+                                isPressed = true
+                                touchCount += 1
+                            }
+                        }
+                        .onEnded { _ in
+                            isPressed = false
+                        }
                 )
-        
-        .ignoresSafeArea()
+            
+            Text("Poke Count: \(touchCount)")
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.medium)
+                .foregroundStyle(Color(red: 0.599, green: 0.412, blue: 0.409))
+                .padding(.bottom, 17.238)
+        }
     }
 }
 
+
 struct PlateletImage: View {
     var clicked: Bool
-
+    var count = 0
     var body: some View {
-        Group {
+   
             if clicked {
                 Image("platelet image2")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
             } else {
                 Image("platelet image")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
-            }
+            
         }
     }
 }
@@ -85,9 +134,3 @@ struct ContentView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//            .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
