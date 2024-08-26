@@ -12,6 +12,7 @@
 		9416D3722C7AF38600A744DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9416D3712C7AF38600A744DA /* Assets.xcassets */; };
 		9416D3752C7AF38600A744DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9416D3742C7AF38600A744DA /* Preview Assets.xcassets */; };
 		9416D37C2C7B536600A744DA /* poke.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9416D37B2C7B536600A744DA /* poke.mp3 */; };
+		9416D37E2C7B5E4A00A744DA /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9416D37D2C7B5E4A00A744DA /* background.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		9416D3712C7AF38600A744DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9416D3742C7AF38600A744DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9416D37B2C7B536600A744DA /* poke.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = poke.mp3; sourceTree = "<group>"; };
+		9416D37D2C7B5E4A00A744DA /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				9416D36F2C7AF38500A744DA /* ContentView.swift */,
 				9416D3712C7AF38600A744DA /* Assets.xcassets */,
 				9416D37B2C7B536600A744DA /* poke.mp3 */,
+				9416D37D2C7B5E4A00A744DA /* background.mp3 */,
 				9416D3732C7AF38600A744DA /* Preview Content */,
 			);
 			path = Platelet;
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9416D37E2C7B5E4A00A744DA /* background.mp3 in Resources */,
 				9416D3752C7AF38600A744DA /* Preview Assets.xcassets in Resources */,
 				9416D3722C7AF38600A744DA /* Assets.xcassets in Resources */,
 				9416D37C2C7B536600A744DA /* poke.mp3 in Resources */,
