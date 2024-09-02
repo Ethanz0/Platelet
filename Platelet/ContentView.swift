@@ -13,8 +13,8 @@ import AVFoundation
 
 struct ContentView: View {
     @State private var isPressed = false
-    @State private var touchCount = UserDefaults.standard.integer(forKey: "touchCount") // Load from UserDefaults
-    @State private var volume: Float = 0.5 // Default volume
+    @State private var touchCount = UserDefaults.standard.integer(forKey: "touchCount") 
+    @State private var volume: Float = 0.5
     @State private var tap = false
 
     var body: some View {
@@ -70,12 +70,11 @@ struct ContentView: View {
                 .padding(.bottom, 17.238)
         }
         .onAppear {
-            SoundManager.shared.playBackgroundMusic() // Start background music
-            SoundManager.shared.setVolume(volume) // Set initial volume
+            SoundManager.shared.playBackgroundMusic()
+            SoundManager.shared.setVolume(volume)
         }
     }
     
-    // Save the touch count to UserDefaults
     private func saveTouchCount() {
         UserDefaults.standard.set(touchCount, forKey: "touchCount")
     }
@@ -98,7 +97,7 @@ class SoundManager {
         if let musicURL = Bundle.main.url(forResource: "background", withExtension: "mp3") {
             do {
                 backgroundMusicPlayer = try AVAudioPlayer(contentsOf: musicURL)
-                backgroundMusicPlayer?.numberOfLoops = -1 // Loop indefinitely
+                backgroundMusicPlayer?.numberOfLoops = -1
                 backgroundMusicPlayer?.prepareToPlay()
             } catch {
                 print("Error loading background music file")
